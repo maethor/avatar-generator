@@ -2,11 +2,11 @@
 
 Generates default avatars from a given string (such as username). This is mainly for an usage in web apps, but you can olso use it to populate LDAP "jpegPhoto" field, for instance.
 
-This is largely inspired by [randomavatar by richardasaurus](https://github.com/richardasaurus/randomavatar).
+This is largely inspired by [Richard O'Dwyer's randomavatar](https://github.com/richardasaurus/randomavatar).
 
-![](examples/photo1.png "")
-![](examples/photo2.png "")
 ![](examples/photo3.png "")
+![](examples/photo2.png "")
+![](examples/photo1.png "")
 
 ## Installation
 
@@ -15,6 +15,7 @@ This is largely inspired by [randomavatar by richardasaurus](https://github.com/
 ## Example in a Flask app
 
     from avatar_generator import Avatar
+    from flask import make_response
 
     @app.route("/photo.png")
     def photo():
