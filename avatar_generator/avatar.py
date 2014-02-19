@@ -15,6 +15,7 @@ from __future__ import (unicode_literals, absolute_import,
                         division, print_function)
 
 import os
+from random import randint, seed
 from io import BytesIO
 from PIL import Image, ImageDraw, ImageFont
 

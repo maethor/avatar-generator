@@ -1,2 +1,2 @@
 include *.md
-recursive-include avatar-generator *.otf
+recursive-include avatar_generator/font *.otf

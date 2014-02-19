@@ -5,6 +5,6 @@
     Generates default avatars from a given string (such as username).
 """
               
-__version__ = "0.0.2"
+__version__ = "0.0.6"
                
 from avatar import Avatar
