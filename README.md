@@ -10,7 +10,7 @@ This is largely inspired by [Richard O'Dwyer's randomavatar](https://github.com/
 
 ## Installation
 
-    pip install avatar_generator
+    pip install avatar-generator
 
 ## Example in a Flask app
 
