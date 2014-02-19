@@ -6,7 +6,7 @@ from setuptools import setup, find_packages
 import avatar_generator
  
 setup(
-    name='avatar_generator',
+    name='avatar-generator',
     version=avatar_generator.__version__,
     packages=find_packages(),
     author="Guillaume Subiron",
