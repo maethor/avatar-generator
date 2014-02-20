@@ -3,11 +3,9 @@
  
 from setuptools import setup, find_packages
  
-import avatar_generator
- 
 setup(
     name='avatar-generator',
-    version=avatar_generator.__version__,
+    version='0.0.11',
     packages=find_packages(),
     author="Guillaume Subiron",
     author_email="maethor+pip@subiron.org",
