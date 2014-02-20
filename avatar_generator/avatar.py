@@ -41,7 +41,7 @@ class Avatar(object):
                   fill=cls.FONT_COLOR,
                   font=font)
         stream = BytesIO()
-        image.save(stream, format="png", optimize=True)
+        image.save(stream, format="JPEG", optimize=True)
         return stream.getvalue()
 
     @staticmethod
