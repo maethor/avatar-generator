@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 # vim: ai ts=4 sts=4 et sw=4 nu
- 
+
 from __future__ import (unicode_literals, absolute_import,
                         division, print_function)
 
@@ -23,8 +23,8 @@ __all__ = ['Avatar']
 
 
 class Avatar(object):
-
     FONT_COLOR = (255, 255, 255)
+    MIN_RENDER_SIZE = 512
 
     @classmethod
     def generate(cls, size, string):
@@ -34,16 +34,19 @@ class Avatar(object):
             :param size: size of the avatar, in pixels
             :param string: string to be used to print text and seed the random
         """
-        image = Image.new('RGB', (size, size), cls._background_color(string))
+        render_size = max(size, Avatar.MIN_RENDER_SIZE)
+        image = Image.new('RGB', (render_size, render_size),
+                          cls._background_color(string))
         draw = ImageDraw.Draw(image)
-        font = cls._font(size)
+        font = cls._font(render_size)
         text = cls._text(string)
-        draw.text(cls._text_position(size, text, font),
+        draw.text(cls._text_position(render_size, text, font),
                   text,
                   fill=cls.FONT_COLOR,
                   font=font)
         stream = BytesIO()
-        image.save(stream, format="JPEG", optimize=True)
+        image = image.resize((size, size), Image.ANTIALIAS)
+        image.save(stream, format="PNG", optimize=True)
         return stream.getvalue()
 
     @staticmethod
