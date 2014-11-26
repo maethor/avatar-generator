@@ -74,7 +74,7 @@ class Avatar(object):
 
             :param size: size of the avatar, in pixels
         """
-        path = os.path.join(os.path.dirname(__file__), 'font',
+        path = os.path.join(os.path.dirname(__file__), 'data',
                             "Inconsolata.otf")
         return ImageFont.truetype(path, size=int(0.8 * size))
 
