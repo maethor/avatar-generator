@@ -19,7 +19,7 @@ This is largely inspired by [Richard O'Dwyer's randomavatar](https://github.com/
 
     @app.route("/photo.png")
     def photo():
-        avatar = Avatar.generate(128, "example@sysnove.fr")
+        avatar = Avatar.generate(128, "example@sysnove.fr", "PNG")
         headers = { 'Content-Type': 'image/png' }
         return make_response(avatar, 200, headers)
 

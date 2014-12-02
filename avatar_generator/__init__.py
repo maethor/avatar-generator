@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 # vim: ai ts=4 sts=4 et sw=4 nu
- 
+
 from __future__ import (unicode_literals, absolute_import,
                         division, print_function)
 
@@ -11,7 +11,7 @@ from __future__ import (unicode_literals, absolute_import,
     Usage:
 
     >>> from avatar_generator import Avatar
-    >>> photo = Avatar.generate(128, "example@sysnove.fr")
+    >>> photo = Avatar.generate(128, "example@sysnove.fr", "PNG")
 """
 
 import os
@@ -23,27 +23,31 @@ __all__ = ['Avatar']
 
 
 class Avatar(object):
-
     FONT_COLOR = (255, 255, 255)
+    MIN_RENDER_SIZE = 512
 
     @classmethod
-    def generate(cls, size, string):
+    def generate(cls, size, string, filetype="JPEG"):
         """
             Generates a squared avatar with random background color.
 
             :param size: size of the avatar, in pixels
             :param string: string to be used to print text and seed the random
+            :param filetype: the file format of the image (i.e. JPEG, PNG)
         """
-        image = Image.new('RGB', (size, size), cls._background_color(string))
+        render_size = max(size, Avatar.MIN_RENDER_SIZE)
+        image = Image.new('RGB', (render_size, render_size),
+                          cls._background_color(string))
         draw = ImageDraw.Draw(image)
-        font = cls._font(size)
+        font = cls._font(render_size)
         text = cls._text(string)
-        draw.text(cls._text_position(size, text, font),
+        draw.text(cls._text_position(render_size, text, font),
                   text,
                   fill=cls.FONT_COLOR,
                   font=font)
         stream = BytesIO()
-        image.save(stream, format="JPEG", optimize=True)
+        image = image.resize((size, size), Image.ANTIALIAS)
+        image.save(stream, format=filetype, optimize=True)
         return stream.getvalue()
 
     @staticmethod
@@ -70,7 +74,7 @@ class Avatar(object):
 
             :param size: size of the avatar, in pixels
         """
-        path = os.path.join(os.path.dirname(__file__), 'font',
+        path = os.path.join(os.path.dirname(__file__), 'data',
                             "Inconsolata.otf")
         return ImageFont.truetype(path, size=int(0.8 * size))
 
