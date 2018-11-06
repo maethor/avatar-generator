@@ -5,7 +5,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='avatar-generator',
-    version='0.1',
+    version='0.2',
     author="Guillaume Subiron",
     author_email="maethor+pip@subiron.org",
     description="Generates default avatars from a given string (such as username).",
