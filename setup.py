@@ -13,7 +13,7 @@ setup(
     packages=find_packages(),
     package_data={'': ['*.otf', 'data/*.otf']},
     include_package_data=True,
-    install_requires=['pillow'],
+    install_requires=['pillow>=9.2.0'],
     url='http://github.com/maethor/avatar-generator',
     classifiers=[
         "Programming Language :: Python :: 3",

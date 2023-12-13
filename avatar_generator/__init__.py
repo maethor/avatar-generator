@@ -42,7 +42,7 @@ class Avatar():
                   fill=cls.FONT_COLOR,
                   font=font)
         stream = BytesIO()
-        image = image.resize((size, size), Image.ANTIALIAS)
+        image = image.resize((size, size), Image.Resampling.LANCZOS)
         image.save(stream, format=filetype, optimize=True)
         return stream.getvalue()
 
@@ -95,8 +95,13 @@ class Avatar():
             :param text: text of the avatar.
             :param font: font used to render the text.
         """
-        width, height = font.getsize(text)
+        left, top, right, bottom = font.getbbox(text)
+
+        width = right - left
         left = (size - width) / 2.0
+
         # I just don't know why 5.5, but it seems to be the good ratio
+        height = bottom - top
         top = (size - height) / 5.5
+
         return left, top
