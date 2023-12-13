@@ -5,11 +5,13 @@ from setuptools import setup, find_packages
 
 setup(
     name='avatar-generator',
-    version='0.3',
+    version='0.4',
     author="Guillaume Subiron",
     author_email="maethor+pip@subiron.org",
     description="Generates default avatars from a given string (such as username).",
     long_description=open('README.md').read(),
+    long_description_content_type="text/markdown",
+    readme="README.md",
     packages=find_packages(),
     package_data={'': ['*.otf', 'data/*.otf']},
     include_package_data=True,

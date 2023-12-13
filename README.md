@@ -1,8 +1,8 @@
 # Avatar Generator
 
-Generates default avatars from a given string (such as username). This is mainly for an usage in web apps, but you can olso use it to populate LDAP "jpegPhoto" field, for instance.
-
-This is largely inspired by [Richard O'Dwyer's randomavatar](https://github.com/richardasaurus/randomavatar).
+Generates default avatars from a given string (such as username). This is
+mainly for an usage in web apps, but you can also use it to populate LDAP
+"jpegPhoto" field, for instance.
 
 ![](examples/photo3.png "")
 ![](examples/photo2.png "")
