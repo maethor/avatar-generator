@@ -75,16 +75,16 @@ class Avatar():
         return ImageFont.truetype(path, size=int(0.8 * size))
 
     @staticmethod
-    def _text(string):
+    def _text(text):
         """
             Returns the text to draw, or a sharp if there is not.
 
-            :param string: text to normalize.
+            :param text: text to normalize.
         """
-        if len(string) == 0:
-            return "#"
-        else:
-            return string[0].upper()
+        if text:
+            return text[0].upper()
+
+        return "#"
 
     @staticmethod
     def _text_position(size, text, font):
