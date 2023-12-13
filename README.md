@@ -4,9 +4,9 @@ Generates default avatars from a given string (such as username). This is
 mainly for an usage in web apps, but you can also use it to populate LDAP
 "jpegPhoto" field, for instance.
 
-![](examples/photo3.png "")
-![](examples/photo2.png "")
-![](examples/photo1.png "")
+![](https://github.com/maethor/avatar-generator/blob/master/examples/photo3.png)
+![](https://github.com/maethor/avatar-generator/blob/master/examples/photo2.png)
+![](https://github.com/maethor/avatar-generator/blob/master/examples/photo1.png)
 
 ## Installation
 
