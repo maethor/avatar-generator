@@ -1,10 +1,4 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
 # vim: ai ts=4 sts=4 et sw=4 nu
-
-from __future__ import (unicode_literals, absolute_import,
-                        division, print_function)
-
 """
     Generates default avatars from a given string (such as username).
 
@@ -17,12 +11,14 @@ from __future__ import (unicode_literals, absolute_import,
 import os
 from random import randint, seed
 from io import BytesIO
+
 from PIL import Image, ImageDraw, ImageFont
 
 __all__ = ['Avatar']
 
 
-class Avatar(object):
+class Avatar():
+    """ Avatar base class. """
     FONT_COLOR = (255, 255, 255)
     MIN_RENDER_SIZE = 512
 
@@ -81,7 +77,9 @@ class Avatar(object):
     @staticmethod
     def _text(string):
         """
-            Returns the text to draw.
+            Returns the text to draw, or a sharp if there is not.
+
+            :param string: text to normalize.
         """
         if len(string) == 0:
             return "#"
@@ -92,6 +90,10 @@ class Avatar(object):
     def _text_position(size, text, font):
         """
             Returns the left-top point where the text should be positioned.
+
+            :param size: size of the avatar.
+            :param text: text of the avatar.
+            :param font: font used to render the text.
         """
         width, height = font.getsize(text)
         left = (size - width) / 2.0

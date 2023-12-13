@@ -16,7 +16,7 @@ setup(
     install_requires=['pillow'],
     url='http://github.com/maethor/avatar-generator',
     classifiers=[
-        "Programming Language :: Python",
+        "Programming Language :: Python :: 3",
         "Operating System :: OS Independent",
         "Intended Audience :: Developers"
     ],
